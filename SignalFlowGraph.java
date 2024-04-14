@@ -1,4 +1,4 @@
-package org.example;
+package com.Signalflowgraphs.Signalflowgraphs.Moduels;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,5 +11,9 @@ public class SignalFlowGraph {
         for(SourceDestinations entry: graph){
             adj.put(entry.getSource(), entry.getDestinations());
         }
+    }
+
+    public Map<Integer, List<Pair>> getGraph() {
+        return adj;
     }
 }

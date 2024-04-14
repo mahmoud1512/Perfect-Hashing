@@ -1,4 +1,4 @@
-package org.example;
+package com.Signalflowgraphs.Signalflowgraphs.Moduels;
 
 public class Pair {
     private int destination, weight;

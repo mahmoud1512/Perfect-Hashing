@@ -1,4 +1,6 @@
-package org.example;
+package com.Signalflowgraphs.Signalflowgraphs.Moduels;
+
+import com.Signalflowgraphs.Signalflowgraphs.Moduels.Logic.GraphOperations;
 
 import java.util.*;
 
