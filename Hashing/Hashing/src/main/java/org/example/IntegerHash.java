@@ -173,7 +173,6 @@ public class IntegerHash implements Hash<Integer> {
         clollisionelements = new ArrayList<>();
         int index = getIndex(mainrandomMatrix,element);
         if (mainHashTable.get(index) == null) {
-            System.out.print("in main");
             mainHashTable.set(index, new Pair<>(element, new ArrayList<>()));
             clollisionelements.add(element);
             collisionindexelemnts.put(index, (ArrayList<Integer>) clollisionelements);
@@ -221,8 +220,8 @@ public class IntegerHash implements Hash<Integer> {
     }
     @Override
     public void insert(Integer key) {
-        int index = getIndex(hashFunction, key);
         if(nSquareSolution){
+            int index = getIndex(hashFunction, key);
             insertInNSquare(key, index);
         }
         else{
@@ -264,7 +263,7 @@ public class IntegerHash implements Hash<Integer> {
         else
             deleteN(key);
     }
-    public int[] positionofelement(int element) {
+    private int[] positionofelement(int element) {
         if(!this.existance.contains(element)) {
             return null;
         }
@@ -293,9 +292,10 @@ public class IntegerHash implements Hash<Integer> {
 
     @Override
     public boolean search(Integer key) {
-        int index = getIndex(hashFunction, key);
+
 
         if(nSquareSolution){
+            int index = getIndex(hashFunction, key);
             return hashTableNSquare.get(index) != null;
         }
         else{

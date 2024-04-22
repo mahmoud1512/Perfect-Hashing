@@ -32,7 +32,7 @@ public class Main {
         System.out.println(integerHash.search(100));
         System.out.println(integerHash.search(430));
         System.out.println(integerHash.search(4021));
-        System.out.println(integerHash.getNumberOfRehash());
+        System.out.println(integerHash.NgetNumberOfRehash());
 //        while(true){
 //            int x = scanner.nextInt();
 //            integerHash.insert(x);
