@@ -6,6 +6,6 @@ public interface Hash<T> {
     void insert(T key);
     void delete(T key);
     int search(T key);
-    void batchInsert(ArrayList<T> keys);
-    void batchDelete(ArrayList<T> keys);
+    void batchInsert(String path);
+    void batchDelete(String path);
 }

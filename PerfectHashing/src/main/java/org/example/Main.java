@@ -2,29 +2,26 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    private ArrayList<Integer> readKeysFromFile(String filePath) {
-        ArrayList<Integer> integersList = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                try {
-                    int number = Integer.parseInt(line.trim());
-                    integersList.add(number);
-                } catch (NumberFormatException e) {
-                    // Handle invalid integer format
-                    System.err.println("Invalid integer format: " + line);
-                }
+    public static long generateHashCode(String input) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(input.getBytes());
+            long hashCode = 0;
+            for (int i = 0; i < 8; i++) {
+                hashCode |= (long) (hashBytes[i] & 0xFF) << (8 * i);
             }
-        } catch (IOException e) {
-            // Handle file IO exception
-            System.err.println("Error reading file: " + e.getMessage());
+            return hashCode;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return -1; // Error case
         }
-        return integersList;
     }
 
     public static void main(String[] args) {
@@ -36,10 +33,18 @@ public class Main {
 //        }
 //        System.out.println(floatHash.getNumberOfRehash());
 
-//        IntegerHash integerHash = new IntegerHash();
+//        String str = "Hello";
+//        long hashCode = generateHashCode(str);
+//        System.out.println("Hash code of '" + str + "' is: " + hashCode);
+
+        IntegerHash<Integer> integerHash = new IntegerHash<>(32);
+        integerHash.batchInsert("D:/newHash/Perfect-Hashing/PerfectHashing/src/main/java/org/example/mohamed");
+        System.out.println(integerHash.search(32));
 //        for(int i = 0 ; i < 10000; i++){
-//            integerHash.insert(i);
+//            integerHash.insert(Integer.toString(i));
 //        }
+//        System.out.println(integerHash.getNumberOfRehash());
+//        System.out.println(integerHash.search(Integer.toString(150)));
 //        for(int i = 0; i < 100; i++){
 //            integerHash.delete(i);
 //        }
