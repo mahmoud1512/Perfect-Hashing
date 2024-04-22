@@ -3,10 +3,10 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Random;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class IntegerHash implements Hash<Integer> {
     private int[][]hashFunction;
@@ -20,6 +20,24 @@ public class IntegerHash implements Hash<Integer> {
     final int numberOfKeyBits = 32;
     int numberOfIndexBits;
     int numberOfRehash;
+    public int newSize2;
+    List<Pair<Integer>> mainHashTable;
+
+    public int numofrehash;
+    public int newSize;
+    private int[][] mainrandomMatrix;
+    private  int[][] randomMatrix;
+    private  List<Integer> secondLevelHashTable;
+    private Map<Integer, ArrayList<Integer>> collisionindexelemnts;
+    private List<Integer> clollisionelements;
+
+    private ArrayList<Integer> existance;
+    boolean resizesecoundlevel;
+
+
+
+
+
     static int getRandomZeroOne() {
         Random random = new Random();
         return random.nextInt(2);
@@ -32,14 +50,28 @@ public class IntegerHash implements Hash<Integer> {
         }
         return arr;
     }
+    private int[][] createRandomMatrix(int rows, int cols) {
+        int[][]arr = new int[rows][32];
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < 32; j++)
+                arr[i][j] = getRandomZeroOne();
+        }
+        return arr;
+    }
+
 
     private void nSpaceSolutionInitialize(){
-        nSpaceSolution = true;
-        hashTableN = new ArrayList<>(hashTableSize);
-        for(int i = 0; i < hashTableSize; i++){
-            hashTableN.add(i, new Pair<>(null));
+        mainrandomMatrix= createRandomMatrix(16, 32);
+        numofrehash = 0;
+        mainHashTable = new ArrayList<>(100000);
+        for (int i = 0; i < 100000; i++) {
+            mainHashTable.add(null);
         }
-        numberOfIndexBits = (int)Math.floor(Math.log10(hashTableSize) / Math.log10(2));
+        secondLevelHashTable = new ArrayList<>();
+        collisionindexelemnts = new HashMap<>();
+        clollisionelements = new ArrayList<>();
+        existance=new ArrayList<>();
+        resizesecoundlevel=false;
     }
     private void nSquareSolutionInitialize(){
         nSquareSolution = true;
@@ -131,8 +163,61 @@ public class IntegerHash implements Hash<Integer> {
             reHashNSquare(integers);
         }
     }
-    private void insertInN(Integer key, int index){
+    private void insertInN(Integer element){
+        if(this.existance.contains(element))
+        {
+            System.out.println("element is founded ");
+            return;
+        }
+        this.existance.add(element);
+        clollisionelements = new ArrayList<>();
+        int index = getIndex(mainrandomMatrix,element);
+        if (mainHashTable.get(index) == null) {
+            System.out.print("in main");
+            mainHashTable.set(index, new Pair<>(element, new ArrayList<>()));
+            clollisionelements.add(element);
+            collisionindexelemnts.put(index, (ArrayList<Integer>) clollisionelements);
+        } else {
+            ArrayList<Integer> collisionElements = new ArrayList<>(collisionindexelemnts.get(index));
+            collisionElements.add(element);
+            collisionindexelemnts.put(index, (ArrayList<Integer>) collisionElements);
+            this.newSize = collisionindexelemnts.get(index).size() * collisionindexelemnts.get(index).size();
+            int numberOfIndexBits = (int)Math.floor(Math.log10(newSize) / Math.log10(2));
+            randomMatrix = createRandomMatrix(numberOfIndexBits, 32);
+            ArrayList<Integer> secondLevelHashTable = new ArrayList<>(this.newSize);
+            secondLevelHashTable = new ArrayList<>(Collections.nCopies(newSize, null));
+            int newIndex = 0;
+            for (int v : collisionindexelemnts.get(index)) {
+                boolean re = false;
+                newIndex =getIndex(randomMatrix,element);;
+                if (secondLevelHashTable.get(newIndex) == null) {
+                    secondLevelHashTable.set(newIndex, v);
+                    mainHashTable.get(index).setSecondaryLevel((ArrayList<Integer>) secondLevelHashTable);
+                } else {
+                    rehashSecondLevel(index);
 
+                }
+            }
+        }
+
+    }
+    private void rehashSecondLevel(int index) {
+        numofrehash++;
+        int originalSize = collisionindexelemnts.get(index).size();
+        int numberOfIndexBits = (int)Math.floor(Math.log10(originalSize * originalSize) / Math.log10(2));
+        randomMatrix = createRandomMatrix(numberOfIndexBits, 32);
+        this.newSize2=originalSize*originalSize;
+        ArrayList<Integer> newSecondLevel = new ArrayList<>(newSize2);
+        newSecondLevel = new ArrayList<>(Collections.nCopies(newSize2, null));
+        for (int element : collisionindexelemnts.get(index)) {
+            int newIndex =getIndex(randomMatrix,element);;
+            if (newSecondLevel.get(newIndex) == null) {
+                newSecondLevel.set(newIndex, element);
+                mainHashTable.get(index).setSecondaryLevel(newSecondLevel);
+            } else {
+                rehashSecondLevel(index);
+            }
+        }
     }
     @Override
     public void insert(Integer key) {
@@ -141,7 +226,7 @@ public class IntegerHash implements Hash<Integer> {
             insertInNSquare(key, index);
         }
         else{
-            insertInN(key, index);
+            insertInN(key);
         }
     }
     private void deleteNSquare(Integer key){
@@ -152,8 +237,24 @@ public class IntegerHash implements Hash<Integer> {
             hashTableNSquare.set(index, null);
         }
     }
-    private void deleteN(Integer key){
-        int index = getIndex(hashFunction, key);
+    private void deleteN(Integer element){
+        Boolean existStatus = this.existance.contains(element);
+        if (existStatus) {
+            this.existance.remove(existance.indexOf(element));
+            int index = getIndex(mainrandomMatrix,element);
+            Pair<Integer> foundElement = mainHashTable.get(index);
+            System.out.println("Deleted element is : " + element + " at index " + index);
+            if (foundElement != null && foundElement.getValue() == element) {
+                mainHashTable.set(index, null);
+            } else {
+                ArrayList<Integer> secondLevel = mainHashTable.get(index).getSecondaryLevel();
+                if (secondLevel.contains(element)) {
+                    secondLevel.remove(Integer.valueOf(element));
+                }
+            }
+        } else {
+            System.out.println("Element " + element + " not found, no action taken.");
+        }
 
     }
     @Override
@@ -163,6 +264,32 @@ public class IntegerHash implements Hash<Integer> {
         else
             deleteN(key);
     }
+    public int[] positionofelement(int element) {
+        if(!this.existance.contains(element)) {
+            return null;
+        }
+        int index =getIndex(mainrandomMatrix,element);
+        Pair<Integer> foundElement = mainHashTable.get(index);
+        ArrayList<Integer> secondLevel = mainHashTable.get(index).getSecondaryLevel();
+        int[] position = new int[2];
+        if (foundElement != null && foundElement.getValue() == element && secondLevel.isEmpty()) {
+            position[0] = index;
+            position[1] = -1; // Element found in main hash table without secondary level
+        } else if (secondLevel.contains(element)) {
+            position[0] = index;
+            position[1] = secondLevel.indexOf(element); // Element found in secondary level
+        }
+        return position;
+    }
+    public boolean isfounded(int element)
+    {
+        int[] p=this.positionofelement(element);
+        if(p==null)
+            return false;
+        else
+            return true;
+
+    }
 
     @Override
     public boolean search(Integer key) {
@@ -171,10 +298,13 @@ public class IntegerHash implements Hash<Integer> {
         if(nSquareSolution){
             return hashTableNSquare.get(index) != null;
         }
-//        else{ nMethod
-//        }
-        return true;
+        else{
+            return  isfounded(key);
+        }
+
+
     }
+
     private ArrayList<Integer> readKeysFromFile(String filePath) {
         ArrayList<Integer> integersList = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -211,8 +341,15 @@ public class IntegerHash implements Hash<Integer> {
         }
         reHashNSquare(Distinct);
     }
-    private void batchInsertN(ArrayList<Integer> keys){
-
+    public void batchInsertN(String filePath) {
+        try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
+            lines.forEach(line -> {
+                int element = Integer.parseInt(line.trim());
+                insertInN(element);
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public void batchInsert(String path) {
@@ -220,7 +357,7 @@ public class IntegerHash implements Hash<Integer> {
         if(nSquareSolution)
             batchInsertNSquare(keys);
         else
-            batchInsertN(keys);
+            batchInsertN(path);
     }
     void batchDeleteNSquare(ArrayList<Integer> keys){
         for(Integer integer: keys){
@@ -230,8 +367,15 @@ public class IntegerHash implements Hash<Integer> {
             hashTableNSquare.set(index, null);
         }
     }
-    void batchDeleteN(ArrayList<Integer> keys){
-
+    void batchDeleteN(String filePath){
+        try (Stream<String> lines = Files.lines(Paths.get(filePath))) {
+            lines.forEach(line -> {
+                int element = Integer.parseInt(line.trim()); // Assuming the file contains integer elements
+                deleteN(element);
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public void batchDelete(String path) {
@@ -239,10 +383,14 @@ public class IntegerHash implements Hash<Integer> {
         if(nSquareSolution)
             batchDeleteNSquare(keys);
         else
-            batchDeleteN(keys);
+            batchDeleteN(path);
     }
 
     public int getNumberOfRehash(){
         return numberOfRehash;
     }
+    public int NgetNumberOfRehash(){
+        return numofrehash;
+    }
+
 }

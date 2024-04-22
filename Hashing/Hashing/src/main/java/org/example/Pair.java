@@ -2,14 +2,28 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class Pair<T> {
-    T value;
-    ArrayList<T> collisions;
-    int[][] hashFunction;
+public class Pair<T>{
+    private T value;
+    private ArrayList<T> secondaryLevel;
 
-    Pair(T value) {
+    public Pair(T value, ArrayList<T> secondaryLevel) {
         this.value = value;
-        collisions = new ArrayList<>();
+        this.secondaryLevel = secondaryLevel;
     }
 
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    public void setSecondaryLevel(ArrayList<T> secondaryLevel) {
+        this.secondaryLevel = secondaryLevel;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public ArrayList<T> getSecondaryLevel() {
+        return secondaryLevel;
+    }
 }

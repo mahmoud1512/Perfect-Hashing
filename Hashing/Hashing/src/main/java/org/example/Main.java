@@ -20,7 +20,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        IntegerHash integerHash = new IntegerHash(false);
+        IntegerHash integerHash = new IntegerHash(true);
         for(int i = 0 ; i < 10000; i++){
             integerHash.insert(i);
         }
