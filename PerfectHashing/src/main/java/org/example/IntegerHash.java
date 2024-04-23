@@ -12,7 +12,7 @@ import java.util.Objects;
 public class IntegerHash<T> extends HashTable<T> implements Hash<T> {
     private final int maxKeyBits;
 
-    public IntegerHash(int maxKeyBits) {
+    public IntegerHash(int maxKeyBits, int hashTableSize) {
         this.maxKeyBits = maxKeyBits;
         initialization();
     }
@@ -31,54 +31,54 @@ public class IntegerHash<T> extends HashTable<T> implements Hash<T> {
 //        construct hash matrix
         hashFunction.createHashMatrix();
     }
-    private String convertFloatToBinary(Float key){
-        int intValue = Float.floatToIntBits(key);
-        return Integer.toBinaryString(intValue);
-    }
-    private String convertDoubleToBinary(Double key){
-        long longValue = Double.doubleToLongBits(key);
-        return Long.toBinaryString(longValue);
-    }
-    private String convertStringToBinary(String key){
-        long stringToLongKey = generateHashCode(key);
-        return Long.toBinaryString(stringToLongKey);
-    }
-    private long generateHashCode(String input) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hashBytes = digest.digest(input.getBytes());
-            long hashCode = 0;
-            for (int i = 0; i < 8; i++) {
-                hashCode |= (long) (hashBytes[i] & 0xFF) << (8 * i);
-            }
-            return hashCode;
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return -1; // Error case
-        }
-    }
-    //      convert float to binary string
-    private String convertToBinary(T key){
-        if(key instanceof Integer)
-            return Integer.toBinaryString((Integer) key);
-        else if(key instanceof Float)
-            return convertFloatToBinary((Float) key);
-        else if(key instanceof Double)
-            return convertDoubleToBinary((Double) key);
-        else if(key instanceof String)
-            return convertStringToBinary((String)key);
-        else // long
-            return Long.toBinaryString((Long) key);
-    }
+//    private String convertFloatToBinary(Float key){
+//        int intValue = Float.floatToIntBits(key);
+//        return Integer.toBinaryString(intValue);
+//    }
+//    private String convertDoubleToBinary(Double key){
+//        long longValue = Double.doubleToLongBits(key);
+//        return Long.toBinaryString(longValue);
+//    }
+//    private String convertStringToBinary(String key){
+//        long stringToLongKey = generateHashCode(key);
+//        return Long.toBinaryString(stringToLongKey);
+//    }
+//    private long generateHashCode(String input) {
+//        try {
+//            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+//            byte[] hashBytes = digest.digest(input.getBytes());
+//            long hashCode = 0;
+//            for (int i = 0; i < 8; i++) {
+//                hashCode |= (long) (hashBytes[i] & 0xFF) << (8 * i);
+//            }
+//            return hashCode;
+//        } catch (NoSuchAlgorithmException e) {
+//            e.printStackTrace();
+//            return -1; // Error case
+//        }
+//    }
+////          convert float to binary string
+//    private String convertToBinary(T key){
+//        if(key instanceof Integer)
+//            return Integer.toBinaryString((Integer) key);
+//        else if(key instanceof Float)
+//            return convertFloatToBinary((Float) key);
+//        else if(key instanceof Double)
+//            return convertDoubleToBinary((Double) key);
+//        else if(key instanceof String)
+//            return convertStringToBinary((String)key);
+//        else // long
+//            return Long.toBinaryString((Long) key);
+//    }
 
-    private int getIndex(T key) {
-//        convert to binary
-        String binaryKeyString = convertToBinary(key);
-//        convert to binary array
-        ArrayList<Integer> binaryKeyArray = hashFunction.convertToBinaryArray(binaryKeyString);
-//        hash matrix * binaryKeyArray
-        return hashFunction.multiplication(binaryKeyArray);
-    }
+//    private int getIndex(T key) {
+////        convert to binary
+//        String binaryKeyString = hashFunction.convertToBinary(key);
+////        convert to binary array
+//        ArrayList<Integer> binaryKeyArray = hashFunction.convertToBinaryArray(binaryKeyString);
+////        hash matrix * binaryKeyArray
+//        return hashFunction.multiplication(binaryKeyArray);
+//    }
 
     private ArrayList<T> getKeys(){
         ArrayList<T> keys = new ArrayList<>();

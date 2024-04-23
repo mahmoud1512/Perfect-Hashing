@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class HashTable<T>{
-//    hash function of hash table
+    //    hash function of hash table
     protected HashFunction hashFunction;
-//    hash table
+    //    hash table
     protected ArrayList<T> table;
-//    size of hash table (based on type of hash)
+    //    size of hash table (based on type of hash)
     protected int hashTableSize;
     protected int numberOfRehash;
     protected ArrayList<T> readFromFile(String path) {
@@ -35,6 +35,15 @@ public class HashTable<T>{
         @SuppressWarnings("unchecked")
         T parsedObject = (T) line; // Assuming each line represents an object of type T
         return parsedObject;
+    }
+
+    protected int getIndex(T key) {
+//        convert to binary
+        String binaryKeyString = hashFunction.convertToBinary(key);
+//        convert to binary array
+        ArrayList<Integer> binaryKeyArray = hashFunction.convertToBinaryArray(binaryKeyString);
+//        hash matrix * binaryKeyArray
+        return hashFunction.multiplication(binaryKeyArray);
     }
 
 }

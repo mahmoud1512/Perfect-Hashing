@@ -1,12 +1,11 @@
 package org.example.HashTable;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class HashFunction {
+public class HashFunction<T> {
     private int numberOfMaxKeyBits;
 
     private int[][] hashMatrix;
@@ -44,6 +43,45 @@ public class HashFunction {
         return binaryKey;
     }
 
+    private String convertFloatToBinary(Float key){
+        int intValue = Float.floatToIntBits(key);
+        return Integer.toBinaryString(intValue);
+    }
+    private String convertDoubleToBinary(Double key){
+        long longValue = Double.doubleToLongBits(key);
+        return Long.toBinaryString(longValue);
+    }
+    private String convertStringToBinary(String key){
+        long stringToLongKey = generateHashCode(key);
+        return Long.toBinaryString(stringToLongKey);
+    }
+    private long generateHashCode(String input) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(input.getBytes());
+            long hashCode = 0;
+            for (int i = 0; i < 8; i++) {
+                hashCode |= (long) (hashBytes[i] & 0xFF) << (8 * i);
+            }
+            return hashCode;
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return -1; // Error case
+        }
+    }
+    public String convertToBinary(T key){
+        if(key instanceof Integer)
+            return Integer.toBinaryString((Integer) key);
+        else if(key instanceof Float)
+            return convertFloatToBinary((Float) key);
+        else if(key instanceof Double)
+            return convertDoubleToBinary((Double) key);
+        else if(key instanceof String)
+            return convertStringToBinary((String)key);
+        else // long
+            return Long.toBinaryString((Long) key);
+    }
+
     public int multiplication(ArrayList<Integer> binaryKeyArray){
         int result = 0;
         int rows = hashMatrix.length;
@@ -65,5 +103,4 @@ public class HashFunction {
     public void setNumberOfIndexBits(int numberOfIndexBits) {
         this.numberOfIndexBits = numberOfIndexBits;
     }
-
 }
