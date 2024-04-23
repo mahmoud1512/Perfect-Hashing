@@ -1,7 +1,7 @@
 package org.example.HashTable;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Objects;
 
 public class HashTable<T>{
 //    hash function of hash table
@@ -12,24 +12,28 @@ public class HashTable<T>{
     protected ArrayList<T> table;
     protected int numberOfRehash = 0;
 
-//    construct default table
-    protected void initializeHashTable(int numberOfMaxKeyBits) {
-        table = new ArrayList<>(Collections.nCopies(hashTableSize * hashTableSize, null));
-//        initialize hash function
-        hashFunction = new HashFunction<>(numberOfMaxKeyBits);
-        hashFunction.setNumberOfIndexBits((int)Math.floor(Math.log(hashTableSize * hashTableSize / Math.log(2))));
-//        construct hash matrix
-        hashFunction.createHashMatrix();
+    protected int getIndex(T key) {
+//        convert to binary array
+        ArrayList<Integer> binaryKeyArray = hashFunction.convertToBinaryArray(key);
+//        hash matrix * binaryKeyArray
+        return hashFunction.multiplication(binaryKeyArray);
     }
 
-//    construct custom table
-    protected void initializeHashTable(int numberOfMaxKeyBits, int hashTableSize) {
-        this.hashTableSize = hashTableSize;
-        table = new ArrayList<>(Collections.nCopies(hashTableSize * hashTableSize, null));
-//        initialize hash function
-        hashFunction = new HashFunction<>(numberOfMaxKeyBits);
-        hashFunction.setNumberOfIndexBits((int)Math.floor(Math.log(hashTableSize * hashTableSize / Math.log(2))));
-//        construct hash matrix
-        hashFunction.createHashMatrix();
+    protected Integer getStatus(T key){
+//        get index of key
+        int index = getIndex(key);
+
+//        empty bucket
+        if (Objects.equals(table.get(index), null)){
+            return -1;
+        }
+//        same index and same key
+        else if (Objects.equals(key, table.get(index))){
+            return 1;
+        }
+//        same index and different key
+        else {
+            return 0;
+        }
     }
 }

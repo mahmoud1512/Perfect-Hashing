@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c3cd961-7b8c-4c92-856a-67b4c25484bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Perfect-Hashing.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/PerfectHashing.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/out/production/PerfectHashing/org/example/Hash.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/out/production/PerfectHashing/org/example/HashTable/HashFunction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/out/production/PerfectHashing/org/example/HashTable/HashTable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/out/production/PerfectHashing/org/example/HashTable/Pair.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/out/production/PerfectHashing/org/example/HashTypeFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/out/production/PerfectHashing/org/example/IntegerHash.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/out/production/PerfectHashing/org/example/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/out/production/PerfectHashing/org/example/NSpaceHash.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/NSpaceHash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/mohamed" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/DoubleHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/DoubleHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/FloatHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/FloatHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Hash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/HashTable/HashFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/HashTable/HashFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/HashTable/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/HashTable/HashTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/HashTypeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/HashTypeFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/IntegerHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/IntegerHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Methods/NSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Methods/NSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/StringHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/StringHash.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2fTffXsddIKnH91KRsHPWBidevB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/CSED/year 2/term 4/DS 2/labs/lab2/main/Perfect-Hashing/PerfectHashing"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c3cd961-7b8c-4c92-856a-67b4c25484bd" name="Changes" comment="" />
+      <created>1713830091850</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713830091850</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

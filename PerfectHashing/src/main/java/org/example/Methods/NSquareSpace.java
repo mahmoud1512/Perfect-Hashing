@@ -1,26 +1,31 @@
 package org.example.Methods;
 
 import org.example.Hash;
+import org.example.HashTable.HashFunction;
 import org.example.HashTable.HashTable;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Objects;
 
-public class NSquare<T> extends HashTable<T> implements Hash<T> {
+public class NSquareSpace<T> extends HashTable<T> implements Hash<T> {
 
-    public NSquare(int numberOfMaxKeyBits) {
-        initializeHashTable(numberOfMaxKeyBits);
+    public NSquareSpace(int numberOfMaxKeyBits) {
+        table = new ArrayList<>(Collections.nCopies(hashTableSize * hashTableSize, null));
+//        initialize hash function
+        hashFunction = new HashFunction<>(numberOfMaxKeyBits);
+        hashFunction.setNumberOfIndexBits((int)Math.floor(Math.log(hashTableSize * hashTableSize / Math.log(2))));
+//        construct hash matrix
+        hashFunction.createHashMatrix();
     }
 
-    public NSquare(int numberOfMaxKeyBits, int hashTableSize) {
-        initializeHashTable(numberOfMaxKeyBits, hashTableSize);
-    }
-    private int getIndex(T key) {
-//        convert to binary array
-        ArrayList<Integer> binaryKeyArray = hashFunction.convertToBinaryArray(key);
-//        hash matrix * binaryKeyArray
-        return hashFunction.multiplication(binaryKeyArray);
+    public NSquareSpace(int numberOfMaxKeyBits, int hashTableSize) {
+        this.hashTableSize = hashTableSize;
+        table = new ArrayList<>(Collections.nCopies(hashTableSize * hashTableSize, null));
+//        initialize hash function
+        hashFunction = new HashFunction<>(numberOfMaxKeyBits);
+        hashFunction.setNumberOfIndexBits((int)Math.floor(Math.log(hashTableSize * hashTableSize / Math.log(2))));
+//        construct hash matrix
+        hashFunction.createHashMatrix();
     }
 
     private ArrayList<T> getKeys(){
@@ -30,24 +35,6 @@ public class NSquare<T> extends HashTable<T> implements Hash<T> {
                 keys.add(key);
         }
         return keys;
-    }
-
-    private Integer getStatus(T key){
-//        get index of key
-        int index = getIndex(key);
-
-//        empty bucket
-        if (Objects.equals(table.get(index), null)){
-            return -1;
-        }
-//        same index and same key
-        else if (Objects.equals(key, table.get(index))){
-            return 1;
-        }
-//        same index and different key
-        else {
-            return 0;
-        }
     }
 
     private void rehash(ArrayList<T> arrayOfKeys){ // recursion function
@@ -73,6 +60,10 @@ public class NSquare<T> extends HashTable<T> implements Hash<T> {
 
     public int getNumberOfRehash(){
         return numberOfRehash;
+    }
+
+    public int getSize(){
+        return hashTableSize * hashTableSize;
     }
 
     @Override
