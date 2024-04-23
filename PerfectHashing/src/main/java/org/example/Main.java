@@ -1,13 +1,13 @@
 package org.example;
-import org.example.Methods.NSquare;
+
+import org.example.Methods.NSpace;
+import org.example.Methods.NSquareSpace;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
     private ArrayList<Integer> readKeysFromFile(String filePath) {
@@ -32,7 +32,34 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        NSquare<Integer> nSquare = new NSquare<>(32);
+        NSpace<Integer> nSpace = new NSpace<>(32, 100);
+        for (int i = 0; i <= 10000; i++)
+            nSpace.insert(i);
+
+        System.out.println(nSpace.search(50));
+        System.out.println(nSpace.search(50000));
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int i = 100; i <= 500; i++)
+            arrayList.add(i);
+
+        System.out.println(Arrays.toString(nSpace.batchDelete(arrayList)));
+
+        System.out.println(nSpace.search(354));
+
+        arrayList = new ArrayList<>();
+
+        for (int i = 200; i <= 1000; i++)
+            arrayList.add(i);
+
+        System.out.println(Arrays.toString(nSpace.batchDelete(arrayList)));
+
+        System.out.println(nSpace.getNumberOfRehash());
+
+        System.out.println(nSpace.getSize());
+
+
+//        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
 //        for (int i = 0; i <= 10000; i++)
 //            nSquare.insert(i);
 //
@@ -55,6 +82,7 @@ public class Main {
 //        System.out.println(Arrays.toString(nSquare.batchInsert(arrayList)));
 //
 //        System.out.println(nSquare.getNumberOfRehash());
+//        System.out.println(nSquare.getSize());
 
 
 
