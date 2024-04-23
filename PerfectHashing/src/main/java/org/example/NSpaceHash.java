@@ -15,7 +15,7 @@ public class NSpaceHash<T> extends HashTable<T> implements Hash<T>{
     NSpaceHash(int maxKeyBits, int hashTableSize) {
         this.hashTableSize = hashTableSize;
 
-        table = (ArrayList<T>) new ArrayList<>(Collections.nCopies(hashTableSize, new IntegerHash<>(32, 1)));
+        table = (ArrayList<T>) new ArrayList<>(Collections.nCopies(hashTableSize, new IntegerHash<>(maxKeyBits, 1)));
         hashFunction = new HashFunction();
         hashFunction.setNumberOfMaxKeyBits(maxKeyBits);
         hashFunction.setNumberOfIndexBits((int)Math.floor(Math.log10(hashTableSize / Math.log10(2))));
