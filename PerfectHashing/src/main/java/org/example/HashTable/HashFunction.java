@@ -3,12 +3,20 @@ package org.example.HashTable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class HashFunction {
-    private int numberOfMaxKeyBits;
+public class HashFunction<T> {
+    private final int numberOfMaxKeyBits;
 
     private int[][] hashMatrix;
 
     private int numberOfIndexBits;
+
+    private final ConvertToBinaryFactory<T> convertToBinaryFactory;
+
+    public HashFunction(int numberOfMaxKeyBits) {
+        this.numberOfMaxKeyBits = numberOfMaxKeyBits;
+        convertToBinaryFactory = new ConvertToBinaryFactory<>();
+    }
+
     private static int getRandomZeroOne() {
         Random random = new Random();
         return random.nextInt(2);
@@ -21,7 +29,10 @@ public class HashFunction {
         }
     }
 
-    public ArrayList<Integer> convertToBinaryArray(String binaryString){
+
+    public ArrayList<Integer> convertToBinaryArray(T key){
+//        convert to binary string
+        String binaryString = convertToBinaryFactory.factory(key);
         int len = binaryString.length();
         ArrayList<Integer> binaryKey = new ArrayList<>();
         for(int i = 0; i < len; i++){
@@ -55,9 +66,6 @@ public class HashFunction {
             result += (sum * Math.pow(2, i));
         }
         return result;
-    }
-    public void setNumberOfMaxKeyBits(int numberOfMaxKeyBits) {
-        this.numberOfMaxKeyBits = numberOfMaxKeyBits;
     }
     public void setNumberOfIndexBits(int numberOfIndexBits) {
         this.numberOfIndexBits = numberOfIndexBits;
