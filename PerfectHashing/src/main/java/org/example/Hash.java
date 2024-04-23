@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public interface Hash<T> {
     void insert(T key);
     void delete(T key);
-    int search(T key);
-    void batchInsert(ArrayList<T> keys);
-    void batchDelete(ArrayList<T> keys);
+    Boolean search(T key);
+    int[] batchInsert(ArrayList<T> keys);
+    int[] batchDelete(ArrayList<T> keys);
 }

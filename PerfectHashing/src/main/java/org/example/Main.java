@@ -1,8 +1,11 @@
 package org.example;
+import org.example.Methods.NSquare;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -28,6 +31,33 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
+//        NSquare<Integer> nSquare = new NSquare<>(32);
+//        for (int i = 0; i <= 10000; i++)
+//            nSquare.insert(i);
+//
+//        System.out.println(nSquare.search(100));
+//        System.out.println(nSquare.search(1000000));
+//
+//        ArrayList<Integer> arrayList = new ArrayList<>();
+//        for (int i = 100; i <= 500; i++)
+//            arrayList.add(i);
+//
+//        System.out.println(Arrays.toString(nSquare.batchDelete(arrayList)));
+//
+//        System.out.println(nSquare.search(354));
+//
+//        arrayList = new ArrayList<>();
+//
+//        for (int i = 200; i <= 1000; i++)
+//            arrayList.add(i);
+//
+//        System.out.println(Arrays.toString(nSquare.batchInsert(arrayList)));
+//
+//        System.out.println(nSquare.getNumberOfRehash());
+
+
+
 //        Scanner sc = new Scanner(System.in);
 //
 //        FloatHash floatHash = new FloatHash();
