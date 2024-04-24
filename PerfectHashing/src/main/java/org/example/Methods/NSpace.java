@@ -19,7 +19,6 @@ public class NSpace<T> extends HashTable<T> implements Hash<T> {
 
         this.numberOfMaxKeyBits = numberOfMaxKeyBits;
 
-
 //        initialize hash function
         hashFunction = new HashFunction<>(numberOfMaxKeyBits);
         table = new ArrayList<>(Collections.nCopies(hashTableSize, null));
@@ -64,8 +63,6 @@ public class NSpace<T> extends HashTable<T> implements Hash<T> {
     private void fullRehash(ArrayList<T> keys){
         hashTableSize = keys.size() * 5;
 
-//        initialize hash function
-        hashFunction = new HashFunction<>(numberOfMaxKeyBits);
         table = new ArrayList<>(Collections.nCopies(hashTableSize, null));
         hashFunction.setNumberOfIndexBits((int)Math.floor(Math.log(hashTableSize / Math.log(2))));
 //        construct hash matrix
@@ -86,6 +83,7 @@ public class NSpace<T> extends HashTable<T> implements Hash<T> {
             ArrayList<T> keys = getElements();
             keys.add(key);
             numberOfElements = 0;
+            numberOfRehash++;
 //            full rehash;
             fullRehash(keys);
             return true;
@@ -132,6 +130,7 @@ public class NSpace<T> extends HashTable<T> implements Hash<T> {
             else {
 //                count inserted keys
                 insertionStatus[1]++;
+                numberOfElements++;
                 insert(key);
             }
         }
@@ -145,6 +144,7 @@ public class NSpace<T> extends HashTable<T> implements Hash<T> {
             if(search(key)) {
 //                count deleted keys
                 deleteStatus[0]++;
+                numberOfElements--;
                 delete(key);
             }
             else {
