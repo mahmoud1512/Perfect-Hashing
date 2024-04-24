@@ -32,34 +32,36 @@ public class Main {
 
     public static void main(String[] args) {
 
-        NSpace<Integer> nSpace = new NSpace<>(32, 100);
-        for (int i = 0; i <= 10000; i++)
-            nSpace.insert(i);
+        NSpace<Integer> nSpace = new NSpace<>(32, 10);
+//        for (int i = 0; i <= 50000; i++)
+//            nSpace.insert(i);
 
-        System.out.println(nSpace.search(50));
-        System.out.println(nSpace.search(50000));
-
+//        System.out.println(nSpace.search(50));
+//        System.out.println(nSpace.search(50000));
+//
         ArrayList<Integer> arrayList = new ArrayList<>();
-        for (int i = 100; i <= 500; i++)
+        for (int i = 0; i <= 10; i++)
             arrayList.add(i);
 
-        System.out.println(Arrays.toString(nSpace.batchDelete(arrayList)));
-
-        System.out.println(nSpace.search(354));
-
-        arrayList = new ArrayList<>();
-
-        for (int i = 200; i <= 1000; i++)
-            arrayList.add(i);
-
-        System.out.println(Arrays.toString(nSpace.batchDelete(arrayList)));
-
-        System.out.println(nSpace.getNumberOfRehash());
+        nSpace.batchInsert(arrayList);
+//
+//        System.out.println(Arrays.toString(nSpace.batchDelete(arrayList)));
+//
+//        System.out.println(nSpace.search(354));
+//
+//        arrayList = new ArrayList<>();
+//
+//        for (int i = 200; i <= 1000; i++)
+//            arrayList.add(i);
+//
+//        System.out.println(Arrays.toString(nSpace.batchDelete(arrayList)));
+//
+//        System.out.println(nSpace.getNumberOfRehash());
 
         System.out.println(nSpace.getSize());
 
 
-//        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
+        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
 //        for (int i = 0; i <= 10000; i++)
 //            nSquare.insert(i);
 //
@@ -75,6 +77,7 @@ public class Main {
 //        System.out.println(nSquare.search(354));
 //
 //        arrayList = new ArrayList<>();
+        nSquare.batchInsert(arrayList);
 //
 //        for (int i = 200; i <= 1000; i++)
 //            arrayList.add(i);
@@ -82,7 +85,7 @@ public class Main {
 //        System.out.println(Arrays.toString(nSquare.batchInsert(arrayList)));
 //
 //        System.out.println(nSquare.getNumberOfRehash());
-//        System.out.println(nSquare.getSize());
+        System.out.println(nSquare.getSize());
 
 
 

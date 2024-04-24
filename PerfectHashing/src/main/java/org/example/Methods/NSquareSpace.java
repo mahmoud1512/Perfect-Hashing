@@ -28,7 +28,7 @@ public class NSquareSpace<T> extends HashTable<T> implements Hash<T> {
         hashFunction.createHashMatrix();
     }
 
-    private ArrayList<T> getKeys(){
+    protected ArrayList<T> getKeys(){
         ArrayList<T> keys = new ArrayList<>();
         for(T key : table) {
             if(key != null)
@@ -67,16 +67,17 @@ public class NSquareSpace<T> extends HashTable<T> implements Hash<T> {
     }
 
     @Override
-    public void insert(T key) {
+    public Boolean insert(T key) {
 //        get index of key
         int index = getIndex(key);
 //        empty bucket (insert)
         if(getStatus(key) == -1) {
             table.set(index, key);
+            return true;
         }
 //        same index and same key (warning message)
         else if(getStatus(key) == 1){
-            System.out.println("The element you need to insert is already exist");
+            return false;
         }
 //        same index and different key (rehash)
         else{
@@ -86,13 +87,14 @@ public class NSquareSpace<T> extends HashTable<T> implements Hash<T> {
 //            resize and rehash
             rehash(arrayOfKeys);
         }
+        return true;
     }
 
     @Override
-    public void delete(T key) {
+    public Boolean delete(T key) {
 //        empty bucket || same index and different key (warning message)
         if(getStatus(key) == -1 || getStatus(key) == 0) {
-            System.out.println("The element is not exit to delete it!!!");
+            return false;
         }
 //        same index and same key (delete)
         else{
@@ -101,6 +103,7 @@ public class NSquareSpace<T> extends HashTable<T> implements Hash<T> {
 
             table.set(index, null);
         }
+        return true;
     }
 
     @Override
