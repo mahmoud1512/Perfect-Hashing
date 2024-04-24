@@ -38,7 +38,11 @@ public class Main {
             mainProgram();
         }
 
+<<<<<<< HEAD
+//        NSpace<Integer> nSpace = new NSpace<>(32, 10);
+=======
 //        NSpace<Integer> nSpace = new NSpace<>(32, 100);
+>>>>>>> 0d06592fc1843d131dccd027e15945f445a1f7da
 //        for (int i = 0; i <= 10000; i++)
 //            nSpace.insert(i);
 //
@@ -63,16 +67,23 @@ public class Main {
 //        System.out.println(nSpace.getNumberOfRehash());
 //
 //        System.out.println(nSpace.getSize());
+<<<<<<< HEAD
+//
+//        System.out.println("------------------------------------------------------");
+//
+//        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
+=======
 
 
         NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
+>>>>>>> 0d06592fc1843d131dccd027e15945f445a1f7da
 //        for (int i = 0; i <= 10000; i++)
 //            nSquare.insert(i);
 //
 //        System.out.println(nSquare.search(100));
 //        System.out.println(nSquare.search(1000000));
 //
-//        ArrayList<Integer> arrayList = new ArrayList<>();
+//        arrayList = new ArrayList<>();
 //        for (int i = 100; i <= 500; i++)
 //            arrayList.add(i);
 //
@@ -81,7 +92,7 @@ public class Main {
 //        System.out.println(nSquare.search(354));
 //
 //        arrayList = new ArrayList<>();
-        nSquare.batchInsert(arrayList);
+//        nSquare.batchInsert(arrayList);
 //
 //        for (int i = 200; i <= 1000; i++)
 //            arrayList.add(i);
@@ -89,7 +100,7 @@ public class Main {
 //        System.out.println(Arrays.toString(nSquare.batchInsert(arrayList)));
 //
 //        System.out.println(nSquare.getNumberOfRehash());
-        System.out.println(nSquare.getSize());
+//        System.out.println(nSquare.getSize());
 
 
 
