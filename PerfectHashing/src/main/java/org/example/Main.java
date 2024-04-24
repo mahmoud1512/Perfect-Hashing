@@ -33,16 +33,27 @@ public class Main {
         return integersList;
     }
 
+    public static ArrayList<String> readDataFromFile(String filePath) {
+        ArrayList<String> dataList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                dataList.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return dataList;
+    }
+
     public static void main(String[] args) {
         while(true) {
             mainProgram();
         }
 
-<<<<<<< HEAD
 //        NSpace<Integer> nSpace = new NSpace<>(32, 10);
-=======
 //        NSpace<Integer> nSpace = new NSpace<>(32, 100);
->>>>>>> 0d06592fc1843d131dccd027e15945f445a1f7da
+
 //        for (int i = 0; i <= 10000; i++)
 //            nSpace.insert(i);
 //
@@ -67,16 +78,14 @@ public class Main {
 //        System.out.println(nSpace.getNumberOfRehash());
 //
 //        System.out.println(nSpace.getSize());
-<<<<<<< HEAD
 //
 //        System.out.println("------------------------------------------------------");
 //
 //        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
-=======
 
 
-        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
->>>>>>> 0d06592fc1843d131dccd027e15945f445a1f7da
+//        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
+
 //        for (int i = 0; i <= 10000; i++)
 //            nSquare.insert(i);
 //
@@ -254,13 +263,15 @@ public class Main {
                     System.out.println("enter the key you want to insert");
                     text = sc.nextLine();
                     sc.nextLine();
-                    hashtable.insert(text);
+                    System.out.println((hashtable.insert(text)) ? "key inserted successfully"
+                                                                : "the key you are trying to insert already exists");
                     break;
                 case 2:
                     System.out.println("enter the key you want to delete");
                     text = sc.nextLine();
                     sc.nextLine();
-                    hashtable.delete(text);
+                    System.out.println((hashtable.delete(text)) ? "key deleted successfully"
+                                                                : "the key you are trying to delete doesn't exist");
                     break;
                 case 3:
                     System.out.println("enter the key you want to search for");
@@ -272,17 +283,19 @@ public class Main {
                 case 4:
                     System.out.println("enter the path to the file containing keys you want to insert");
                     text = sc.nextLine();
-                    sc.nextLine();
-                    keys = hashtable.readFromFile(text);
+                    text = sc.nextLine();
+                    //System.out.println(text);
+                    keys = hashtable.readDataFromFile(text);
                     operationStatus = hashtable.batchInsert(keys);
-                    System.out.println("number of newly inserted elements = " + operationStatus[0]);
-                    System.out.println("number of already existing elements = " + operationStatus[1]);
+                    System.out.println("number of newly inserted elements = " + operationStatus[1]);
+                    System.out.println("number of already existing elements = " + operationStatus[0]);
                     break;
                 case 5:
                     System.out.println("enter the path to the file containing keys you want to delete");
                     text = sc.nextLine();
-                    sc.nextLine();
-                    keys = hashtable.readFromFile(text);
+                    text = sc.nextLine();
+                    //System.out.println(text);
+                    keys = hashtable.readDataFromFile(text);
                     operationStatus = hashtable.batchDelete(keys);
                     System.out.println("number of deleted elements = " + operationStatus[0]);
                     System.out.println("number of non existing elements = " + operationStatus[1]);

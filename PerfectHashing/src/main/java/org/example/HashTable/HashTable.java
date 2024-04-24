@@ -41,38 +41,52 @@ public class HashTable<T> implements Hash<T> {
         }
     }
 
-    public ArrayList<T> readFromFile(String path) {
-        ArrayList<T> list = new ArrayList<>();
-//        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                T object = parseLineToObject(line);
-//                if (object != null) {
-//                    list.add(object);
-//                }
+//    public ArrayList<T> readFromFile(String path) {
+//        ArrayList<T> list = new ArrayList<>();
+////        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+////            String line;
+////            while ((line = reader.readLine()) != null) {
+////                T object = parseLineToObject(line);
+////                if (object != null) {
+////                    list.add(object);
+////                }
+////            }
+////        } catch (IOException e) {
+////            e.printStackTrace();
+////        }
+//        try {
+//            // Specify the file path
+//            File file = new File(path);
+//
+//            // Create a Scanner to read the file
+//            Scanner scanner = new Scanner(file);
+//
+//            // Read and print each line of the file
+//            while (scanner.hasNextLine()) {
+//                list.add((T) scanner.nextLine());
 //            }
-//        } catch (IOException e) {
+//
+//            // Close the scanner
+//            scanner.close();
+//        } catch (FileNotFoundException e) {
+//            // Print the error message
 //            e.printStackTrace();
 //        }
-        try {
-            // Specify the file path
-            File file = new File(path);
+//        return list;
+//    }
 
-            // Create a Scanner to read the file
-            Scanner scanner = new Scanner(file);
-
-            // Read and print each line of the file
-            while (scanner.hasNextLine()) {
-                list.add((T) scanner.nextLine());
+    public static <T> ArrayList<T> readDataFromFile(String filePath) {
+        ArrayList<T> dataList = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // Assuming data in each line is of type T
+                dataList.add((T) line);
             }
-
-            // Close the scanner
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            // Print the error message
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        return list;
+        return dataList;
     }
 
     private T parseLineToObject(String line) {
@@ -83,13 +97,14 @@ public class HashTable<T> implements Hash<T> {
         return parsedObject;
     }
     @Override
-    public void insert(T key) {
-
+    public Boolean insert(T key) {
+        return null;
     }
 
     @Override
-    public void delete(T key) {
+    public Boolean delete(T key) {
 
+        return null;
     }
 
     @Override

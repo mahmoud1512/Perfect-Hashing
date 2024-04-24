@@ -3,7 +3,6 @@ package org.example.Methods;
 import org.example.Hash;
 import org.example.HashTable.HashFunction;
 import org.example.HashTable.HashTable;
-import org.example.Methods.NSquareSpace;
 
 import java.util.ArrayList;
 import java.util.Collections;
