@@ -240,9 +240,9 @@ public class Main {
         System.out.println("2- N² space dictionary");
         int dictionaryType = sc.nextInt();
         if (dictionaryType == 1)
-            hashtable = new NSpace<>(64, 16);
+            hashtable = new NSpace<>(80, 16);
         else
-            hashtable = new NSquareSpace<>(64, 16);
+            hashtable = new NSquareSpace<>(80, 16);
         int[] operationStatus;
         boolean loop = true;
         while(loop) {
@@ -262,6 +262,7 @@ public class Main {
                 case 1:
                     System.out.println("enter the key you want to insert");
                     text = sc.nextLine();
+                    text = sc.nextLine();
                     sc.nextLine();
                     System.out.println((hashtable.insert(text)) ? "key inserted successfully"
                                                                 : "the key you are trying to insert already exists");
@@ -269,12 +270,14 @@ public class Main {
                 case 2:
                     System.out.println("enter the key you want to delete");
                     text = sc.nextLine();
+                    text = sc.nextLine();
                     sc.nextLine();
                     System.out.println((hashtable.delete(text)) ? "key deleted successfully"
                                                                 : "the key you are trying to delete doesn't exist");
                     break;
                 case 3:
                     System.out.println("enter the key you want to search for");
+                    text = sc.nextLine();
                     text = sc.nextLine();
                     sc.nextLine();
                     System.out.println((hashtable.search(text)) ? "the key you're trying to search for exists"

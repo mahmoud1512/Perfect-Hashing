@@ -66,7 +66,7 @@ public class NSpace<T> extends HashTable<T> implements Hash<T> {
         hashFunction.setNumberOfIndexBits((int)Math.floor(Math.log(hashTableSize / Math.log(2))));
 //        construct hash matrix
         hashFunction.createHashMatrix();
-//        insert elements
+//        insert element
         batchInsert(keys);
     }
 
@@ -113,13 +113,18 @@ public class NSpace<T> extends HashTable<T> implements Hash<T> {
     @Override
     public Boolean search(T key) {
         int index = getIndex(key);
-        if (!Objects.equals(table.get(index), null))
+        if (!Objects.equals(table.get(index), null)) {
             return ((NSquareSpace<T>) table.get(index)).search(key);
+        }
+
         return false;
     }
 
     @Override
     public int[] batchInsert(ArrayList<T> keys) {
+
+
+
         int [] insertionStatus = new int[2];
         for(T key: keys){
             if(search(key)){

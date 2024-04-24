@@ -142,13 +142,13 @@ public class NSquareSpace<T> extends HashTable<T> implements Hash<T> {
         for(T key: keys){
             if(getStatus(key) == -1 || getStatus(key) == 0)
 //                count not exist keys
-                deleteStatus[0]++;
+                deleteStatus[1]++;
             else {
 //                get index of key
                 int index = getIndex(key);
                 table.set(index, null);
 //                count deleted keys
-                deleteStatus[1]++;
+                deleteStatus[0]++;
             }
         }
         return deleteStatus;
