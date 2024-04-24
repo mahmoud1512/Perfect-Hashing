@@ -1,0 +1,162 @@
+	-:start test with 10 elements :-	
+Time OF N^2 is 27414400
+Number of rehashes in N^2 is 1
+Space of N^2 is 100
+
+Time OF N is 8307100
+Number of rehashes in N is 2
+Space of N is 74
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 100 elements :-	
+Time OF N^2 is 9413200
+Number of rehashes in N^2 is 1
+Space of N^2 is 9801
+
+Time OF N is 47803900
+Number of rehashes in N is 34
+Space of N is 663
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 200 elements :-	
+Time OF N^2 is 6401200
+Number of rehashes in N^2 is 1
+Space of N^2 is 36481
+
+Time OF N is 59593600
+Number of rehashes in N is 67
+Space of N is 1364
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 300 elements :-	
+Time OF N^2 is 6107000
+Number of rehashes in N^2 is 1
+Space of N^2 is 84681
+
+Time OF N is 75883800
+Number of rehashes in N is 146
+Space of N is 2146
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 400 elements :-	
+Time OF N^2 is 9385900
+Number of rehashes in N^2 is 2
+Space of N^2 is 145924
+
+Time OF N is 68750600
+Number of rehashes in N is 215
+Space of N is 2879
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 500 elements :-	
+Time OF N^2 is 28481300
+Number of rehashes in N^2 is 4
+Space of N^2 is 219961
+
+Time OF N is 129119800
+Number of rehashes in N is 220
+Space of N is 3413
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 600 elements :-	
+Time OF N^2 is 11288500
+Number of rehashes in N^2 is 1
+Space of N^2 is 327184
+
+Time OF N is 119828300
+Number of rehashes in N is 272
+Space of N is 4189
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 700 elements :-	
+Time OF N^2 is 11437400
+Number of rehashes in N^2 is 1
+Space of N^2 is 407044
+
+Time OF N is 111369000
+Number of rehashes in N is 363
+Space of N is 4330
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 800 elements :-	
+Time OF N^2 is 15724800
+Number of rehashes in N^2 is 1
+Space of N^2 is 529984
+
+Time OF N is 157922400
+Number of rehashes in N is 397
+Space of N is 5578
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 900 elements :-	
+Time OF N^2 is 16631900
+Number of rehashes in N^2 is 1
+Space of N^2 is 682276
+
+Time OF N is 146110400
+Number of rehashes in N is 452
+Space of N is 6048
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 1000 elements :-	
+Time OF N^2 is 454213000
+Number of rehashes in N^2 is 3
+Space of N^2 is 18983449
+
+Time OF N is 1108721600
+Number of rehashes in N is 2775
+Space of N is 37058
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 1500 elements :-	
+Time OF N^2 is 115448100
+Number of rehashes in N^2 is 1
+Space of N^2 is 1841449
+
+Time OF N is 319539000
+Number of rehashes in N is 860
+Space of N is 11251
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 2000 elements :-	
+Time OF N^2 is 51872500
+Number of rehashes in N^2 is 1
+Space of N^2 is 3268864
+
+Time OF N is 492659000
+Number of rehashes in N is 1088
+Space of N is 14441
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 10000 elements :-	
+Time OF N^2 is 2025521400
+Number of rehashes in N^2 is 3
+Space of N^2 is 72029169
+
+Time OF N is 2316277900
+Number of rehashes in N is 5188
+Space of N is 94641
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 15000 elements :-	
+Time OF N^2 is 1080835500
+Number of rehashes in N^2 is 1
+Space of N^2 is 158482921
+
+Time OF N is 3142970900
+Number of rehashes in N is 7875
+Space of N is 114200
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 25000 elements :-	
+Time OF N is 5891218200
+Number of rehashes in N is 12474
+Space of N is 255553
+
+-----------------------------------------------------------------------------------------------------
+	-:start test with 50000 elements :-	
+Time OF N is 11632292100
+Number of rehashes in N is 24116
+Space of N is 490402
+
+-----------------------------------------------------------------------------------------------------

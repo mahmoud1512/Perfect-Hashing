@@ -240,9 +240,9 @@ public class Main {
         System.out.println("2- N² space dictionary");
         int dictionaryType = sc.nextInt();
         if (dictionaryType == 1)
-            hashtable = new NSpace<>(64, 16);
+            hashtable = new NSpace<>(80, 16);
         else
-            hashtable = new NSquareSpace<>(64, 16);
+            hashtable = new NSquareSpace<>(80, 16);
         int[] operationStatus;
         boolean loop = true;
         while(loop) {

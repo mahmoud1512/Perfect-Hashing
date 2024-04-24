@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c3cd961-7b8c-4c92-856a-67b4c25484bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/HashTable/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/HashTable/HashTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Perfect-Hashing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Perfect-Hashing.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Methods/NSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Methods/NSpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Methods/NSquareSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/PerfectHashing/src/main/java/org/example/Methods/NSquareSpace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Hash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Hash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/HashTable/ConvertToBinaryFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/HashTable/ConvertToBinaryFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/HashTable/HashFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/HashTable/HashFunction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/HashTable/HashTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/HashTable/HashTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/HashTable/Pair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/HashTable/Pair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Methods/NSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Methods/NSpace.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Methods/NSquareSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Perfect-Hashing/org/example/Methods/NSquareSpace.class" afterDir="false" />
     </list>
@@ -23,6 +27,14 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,8 +56,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/Yahia alkaranshawy/Desktop/Perfect-Hashing"
   }
@@ -54,14 +74,20 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Yahia alkaranshawy\Desktop\Perfect-Hashing\PerfectHashing\src\main\java\org\example" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.Methods" />
+    </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+  <component name="RunManager" selected="Application.Analysis2">
+    <configuration name="Analysis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Methods.Analysis" />
       <module name="Perfect-Hashing" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.Methods.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -69,9 +95,73 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Analysis2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Methods.Analysis2" />
+      <module name="Perfect-Hashing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.Methods.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NSquareSpaceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Perfect-Hashing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.Methods.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.Methods" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Methods.NSquareSpaceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NSquareSpaceTest.Long_Batch_delete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Perfect-Hashing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.Methods.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.Methods" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Methods.NSquareSpaceTest" />
+      <option name="METHOD_NAME" value="Long_Batch_delete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NSquareSpaceTest.Long_Multiple_deletion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Perfect-Hashing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.Methods.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.Methods" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Methods.NSquareSpaceTest" />
+      <option name="METHOD_NAME" value="Long_Multiple_deletion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Analysis2" />
+        <item itemvalue="Application.Analysis" />
+        <item itemvalue="JUnit.NSquareSpaceTest" />
+        <item itemvalue="JUnit.NSquareSpaceTest.Long_Multiple_deletion" />
+        <item itemvalue="JUnit.NSquareSpaceTest.Long_Batch_delete" />
       </list>
     </recent_temporary>
   </component>
