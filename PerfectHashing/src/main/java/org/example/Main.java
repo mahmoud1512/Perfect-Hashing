@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.HashTable.HashTable;
 import org.example.Methods.NSpace;
 import org.example.Methods.NSquareSpace;
 
@@ -8,6 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.Scanner;
 
 public class Main {
     private ArrayList<Integer> readKeysFromFile(String filePath) {
@@ -31,8 +34,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        while(true) {
+            mainProgram();
+        }
 
+<<<<<<< HEAD
 //        NSpace<Integer> nSpace = new NSpace<>(32, 10);
+=======
+//        NSpace<Integer> nSpace = new NSpace<>(32, 100);
+>>>>>>> 0d06592fc1843d131dccd027e15945f445a1f7da
 //        for (int i = 0; i <= 10000; i++)
 //            nSpace.insert(i);
 //
@@ -57,10 +67,16 @@ public class Main {
 //        System.out.println(nSpace.getNumberOfRehash());
 //
 //        System.out.println(nSpace.getSize());
+<<<<<<< HEAD
 //
 //        System.out.println("------------------------------------------------------");
 //
 //        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
+=======
+
+
+        NSquareSpace<Integer> nSquare = new NSquareSpace<>(32);
+>>>>>>> 0d06592fc1843d131dccd027e15945f445a1f7da
 //        for (int i = 0; i <= 10000; i++)
 //            nSquare.insert(i);
 //
@@ -206,5 +222,78 @@ public class Main {
 //        for(Integer x: binaryKey)
 //            System.out.print(x);
 //    }
+
+    public static void mainProgram() {
+        HashTable<String> hashtable;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("choose the type of the dictionary");
+        System.out.println("1- N space dictionary");
+        System.out.println("2- N² space dictionary");
+        int dictionaryType = sc.nextInt();
+        if (dictionaryType == 1)
+            hashtable = new NSpace<>(64, 16);
+        else
+            hashtable = new NSquareSpace<>(64, 16);
+        int[] operationStatus;
+        boolean loop = true;
+        while(loop) {
+            System.out.println("choose the operation to perform on the dictionary");
+            System.out.println("1- Insert");
+            System.out.println("2- Delete");
+            System.out.println("3- Search");
+            System.out.println("4- Batch insert");
+            System.out.println("5- Batch delete");
+            System.out.println("6- reset");
+
+            int choice = sc.nextInt();
+            String text;
+            ArrayList<String> keys;
+
+            switch (choice) {
+                case 1:
+                    System.out.println("enter the key you want to insert");
+                    text = sc.nextLine();
+                    sc.nextLine();
+                    hashtable.insert(text);
+                    break;
+                case 2:
+                    System.out.println("enter the key you want to delete");
+                    text = sc.nextLine();
+                    sc.nextLine();
+                    hashtable.delete(text);
+                    break;
+                case 3:
+                    System.out.println("enter the key you want to search for");
+                    text = sc.nextLine();
+                    sc.nextLine();
+                    System.out.println((hashtable.search(text)) ? "the key you're trying to search for exists"
+                                                                : "the key you're trying to search for doesn't exist");
+                    break;
+                case 4:
+                    System.out.println("enter the path to the file containing keys you want to insert");
+                    text = sc.nextLine();
+                    sc.nextLine();
+                    keys = hashtable.readFromFile(text);
+                    operationStatus = hashtable.batchInsert(keys);
+                    System.out.println("number of newly inserted elements = " + operationStatus[0]);
+                    System.out.println("number of already existing elements = " + operationStatus[1]);
+                    break;
+                case 5:
+                    System.out.println("enter the path to the file containing keys you want to delete");
+                    text = sc.nextLine();
+                    sc.nextLine();
+                    keys = hashtable.readFromFile(text);
+                    operationStatus = hashtable.batchDelete(keys);
+                    System.out.println("number of deleted elements = " + operationStatus[0]);
+                    System.out.println("number of non existing elements = " + operationStatus[1]);
+                    break;
+                case 6:
+                    loop = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 
 }
