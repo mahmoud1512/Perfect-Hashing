@@ -1,4 +1,7 @@
-package org.example.Methods;
+package org.example.Analysis;
+import org.example.Methods.NSpace;
+import org.example.Methods.NSquareSpace;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,8 +32,8 @@ public class Analysis2 {
                     StandardOpenOption.APPEND
             );
             lines = (ArrayList<String>) Files.readAllLines(filePath);
-            NSquareSpace<String>x=new NSquareSpace<>(80);
-            NSpace<String>y=new NSpace<>(80,10);
+            NSquareSpace<String> x=new NSquareSpace<>(80);
+            NSpace<String> y=new NSpace<>(80,10);
             long startTimeN2 = System.nanoTime();
             x.batchInsert(lines);
             long endTimeN2=System.nanoTime();

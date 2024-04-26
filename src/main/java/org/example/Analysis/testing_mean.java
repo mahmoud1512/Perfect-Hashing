@@ -1,9 +1,12 @@
-package org.example.Methods;
+package org.example.Analysis;
+
+import org.example.Methods.NSpace;
+import org.example.Methods.NSquareSpace;
 
 public class testing_mean {
 
     public static void main(String[] args) {
-        NSquareSpace<Integer>x=new NSquareSpace<>(32);
+        NSquareSpace<Integer> x=new NSquareSpace<>(32);
 
         double searchingtimeN2=0;
         double inserttimeN2=0;
@@ -21,7 +24,7 @@ public class testing_mean {
         }
        // System.out.println("averge insertion time in n square is"+inserttimeN2/1000.0+"\n averge time to search is "+searchingtimeN2/5000.0);
 
-        NSpace<Integer>Y=new NSpace<>(32,10);
+        NSpace<Integer> Y=new NSpace<>(32,10);
 
         double searchingtimeN=0;
         double inserttimeN=0;

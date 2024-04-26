@@ -6,8 +6,9 @@ import org.example.HashTable.HashTable;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
-public class NSquareSpace<T> extends HashTable<T> implements Hash<T> {
+public class NSquareSpace<T> extends HashTable<T>{
 
     public NSquareSpace(int numberOfMaxKeyBits) {
         table = new ArrayList<>(Collections.nCopies(hashTableSize * hashTableSize, null));
@@ -36,6 +37,25 @@ public class NSquareSpace<T> extends HashTable<T> implements Hash<T> {
         }
         return keys;
     }
+
+    private Integer getStatus(T key){
+//        get index of key
+        int index = getIndex(key);
+
+//        empty bucket
+        if (Objects.equals(table.get(index), null)){
+            return -1;
+        }
+//        same index and same key
+        else if (Objects.equals(key, table.get(index))){
+            return 1;
+        }
+//        same index and different key
+        else {
+            return 0;
+        }
+    }
+
 
     private void rehash(ArrayList<T> arrayOfKeys){ // recursion function
         numberOfRehash++;

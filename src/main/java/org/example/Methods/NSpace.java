@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 
-public class NSpace<T> extends HashTable<T> implements Hash<T> {
+public class NSpace<T> extends HashTable<T> {
 
     private final int numberOfMaxKeyBits;
     private int numberOfElements = 0;
@@ -33,6 +33,7 @@ public class NSpace<T> extends HashTable<T> implements Hash<T> {
             if (!Objects.equals(table.get(i), null))
                 numberOfRehash += ((NSquareSpace<T>) table.get(i)).getNumberOfRehash();
         }
+        this.numberOfRehash = numberOfRehash;
         return numberOfRehash;
     }
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Perfect-Hashing.iml" filepath="$PROJECT_DIR$/Perfect-Hashing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PerfectHashing.iml" filepath="$PROJECT_DIR$/PerfectHashing.iml" />
     </modules>
   </component>
 </project>
